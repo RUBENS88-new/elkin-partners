@@ -9,4 +9,5 @@
 по ссылке или недоступна, показывает снимок `SNAPSHOT` в `src/page.html` (от 17.11.2026). Пока таблица закрыта — после
 смены цен обновить снимок и пересобрать.
 
-Хостинг: ещё не выбран, публикация только после «да» Антона. Превью: https://claude.ai/artifact/CxXDQq6mNYDrHLLnQNGhVg
+Хостинг: GitHub Pages, https://rubens88-new.github.io/elkin-partners/ (репозиторий RUBENS88-new/elkin-partners, ветка main).
+Каждый push в main сам собирает и выкладывает сайт (.github/workflows/pages.yml).
