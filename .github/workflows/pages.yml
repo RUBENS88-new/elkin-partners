@@ -1,7 +1,7 @@
 name: pages
 on:
   push:
-    branches: [master, main]
+    branches: [main]
   workflow_dispatch:
 permissions:
   contents: read
@@ -9,13 +9,10 @@ permissions:
   id-token: write
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
       - run: python3 build.py
@@ -23,5 +20,12 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - id: deployment
         uses: actions/deploy-pages@v4
