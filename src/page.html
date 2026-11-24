@@ -128,6 +128,13 @@ select,input[type=number]{font:inherit;color:var(--ink);background:var(--paper);
 /* прайс */
 .price-head{display:flex;justify-content:space-between;align-items:end;gap:1rem;flex-wrap:wrap}
 .status{font-size:.85rem;color:var(--muted)}
+.price-tools{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap}
+#priceText{width:100%;min-height:12rem;font:inherit;font-size:.85rem;background:var(--paper);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:.7rem}
+.order{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem 2.5rem;margin:0;padding:0;list-style:none}
+.order li{padding-left:1.6rem;position:relative}
+.order li::before{content:"✓";position:absolute;left:0;color:var(--needle);font-weight:700}
+.warn{background:var(--tag);border-radius:var(--r);padding:1rem 1.2rem}
+@media (max-width:760px){.order{grid-template-columns:1fr}}
 .price-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem 2rem}
 .price-block{min-width:0}
 .price-block h3{font-size:.95rem;margin-bottom:.4rem;color:var(--needle)}
@@ -175,7 +182,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
   <div class="wrap">
     <a class="brand" href="#start">Господин Ёлкин · партнёрам</a>
     <nav class="nav" aria-label="Разделы">
-      <a href="#income">Заработок</a><a href="#steps">Как начать</a><a href="#trees">Ассортимент</a>
+      <a href="#income">Заработок</a><a href="#steps">Как начать</a><a href="#order">Заявка</a><a href="#trees">Ассортимент</a>
       <a href="#price">Прайс</a><a href="#terms">Условия</a><a href="#faq">Вопросы</a>
     </nav>
     <a class="btn small" href="https://t.me/elki_drop_bot" target="_blank" rel="noopener">Стать партнёром</a>
@@ -289,7 +296,25 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
   </div>
 </section>
 
-<section class="band" id="trees">
+<section class="band" id="order">
+  <div class="wrap stack" style="gap:2rem">
+    <div class="stack"><span class="eyebrow">Заявка</span><h2>Что написать в заказе</h2>
+      <p class="lead">Уточнять заказ у покупателя мы не звоним: водитель позвонит только перед выездом. Поэтому привезём то, что написано в заявке. Шаблон пришлём после регистрации в боте.</p></div>
+    <ul class="order">
+      <li>Дерево и ростовка, допы, сумма и способ оплаты.</li>
+      <li>Имя и телефон покупателя — проверьте цифры, ошибка в номере срывает доставку.</li>
+      <li>Дата и интервал не меньше 3 часов. «В течение дня» не подходит.</li>
+      <li>Адрес полностью: город, подъезд, этаж, квартира, домофон.</li>
+      <li>Шлагбаум, охрана, пропуск — напишите, что нужно водителю.</li>
+      <li>Пожелания к дереву: пышнее, ближе к верхней границе ростовки.</li>
+      <li>Нужна ли подставка. Если у покупателя своя, попросите взять запасную на всякий случай.</li>
+      <li>Промокод «ДРОПШИППИНГ Имя».</li>
+    </ul>
+    <p class="warn">Без промокода заказ не попадёт в ваш расчёт. Ставьте его в каждой заявке, в том числе в исправленной.</p>
+  </div>
+</section>
+
+<section class="band alt" id="trees">
   <div class="wrap stack" style="gap:2rem">
     <div class="stack">
       <span class="eyebrow">Ассортимент</span>
@@ -311,34 +336,37 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
         <p>Ровный конус: её стригут по мере роста. Узкая — удобно для небольших комнат. Пахнет хвоей с цитрусовой ноткой.</p></div></article>
       <article class="tree"><img src="img/konika.jpg" alt="Ель Коника в горшке" loading="lazy">
         <div class="body"><h3>Ель Коника в горшке</h3><div class="chips"><span class="chip">40–60 см</span><span class="chip">в горшке</span></div>
-        <p>Маленькая ёлка на стол или подоконник. Часто берут в подарок, весной её можно высадить в землю.</p></div></article>
+        <p>Маленькая ёлка на стол или подоконник. 40–60 см — само дерево, с горшком выходит около 60–80 см. Часто берут в подарок, весной её можно высадить в землю.</p></div></article>
       <article class="tree"><img src="img/spruce-3.jpg" alt="Русская ель у кресла в светлой комнате" loading="lazy">
         <div class="body"><h3>Какой размер выбрать</h3>
-        <p>Ширина примерно: ель 1,5–2 м — около 1,5 м; сосна 1,5–2 м — около 1,8 м; Фразер 1,5–2 м — около 1 м. Нордман бывает и узким, и пышным. Если покупателю нужно уже или шире — подберём.</p></div></article>
+        <p>Ширина примерно: ель 1,5–2 м — около 1,5 м; сосна 1,5–2 м — около 1,8 м; Фразер 1,5–2 м — около 1 м. Нордман бывает и узким, и пышным. Если покупателю нужно уже или шире — подберём.</p>
+        <p>Высота меряется по верхнему ярусу веток, дерево попадает в диапазон ростовки. Нужно не меньше 2 м — берите следующий размер, 2–2,25 м.</p></div></article>
     </div>
     <h3 style="margin-top:1rem">Дополнительные товары</h3>
     <div class="extras">
       <div class="extra"><img src="img/stands.jpg" alt="Подставки для ёлок на складе" loading="lazy"><h3>Подставка</h3><p>Из усиленного пластика, не трескается под весом дерева и воды. Есть для высоких деревьев.</p></div>
-      <div class="extra"><img src="img/wreath-1.jpg" alt="Венок из пихты на книжном шкафу" loading="lazy"><h3>Венки</h3><p>Из пихты, с шишками и сушёными фруктами. С гирляндой и без, есть «Рейкьявик» и «Стокгольм».</p></div>
+      <div class="extra"><img src="img/wreath-1.jpg" alt="Венок из пихты на книжном шкафу" loading="lazy"><h3>Венки</h3><p>Из пихты, диаметр 40 см, вяжут вручную. С гирляндой и без, есть «Рейкьявик» и «Стокгольм».</p></div>
       <div class="extra"><img src="img/branches-1.jpg" alt="Букет пихтового лапника в крафте" loading="lazy"><h3>Лапник и нобилис</h3><p>Букеты из сибирской пихты и голубого нобилиса, связка нобилиса 5 кг.</p></div>
-      <div class="extra"><img src="img/branches-2.jpg" alt="Лапник, кружки и открытка на столе" loading="lazy"><h3>Гирлянды и звёзды</h3><p>Гирлянда на медной нити, большая гирлянда на ёлку, бумажные звёзды 45, 70 и 90 см.</p></div>
+      <div class="extra"><img src="img/branches-2.jpg" alt="Лапник, кружки и открытка на столе" loading="lazy"><h3>Гирлянды и звёзды</h3><p>Гирлянда на медной нити: 10 м, 100 огоньков, батарейки или USB. Большая: нити по 2 м от верхушки, 300 огоньков, от сети. Бумажные звёзды 45, 70 и 90 см.</p></div>
     </div>
     <p class="note">Ещё фото для объявлений — <a href="https://disk.yandex.ru/d/33ErtAsWOSxqgg" target="_blank" rel="noopener">папка на Яндекс Диске</a>.</p>
   </div>
 </section>
 
-<section class="band alt" id="price">
+<section class="band" id="price">
   <div class="wrap stack" style="gap:2rem">
     <div class="price-head">
       <div class="stack"><span class="eyebrow">Прайс 2026</span><h2>Цены для партнёра</h2></div>
-      <span class="status" id="priceStatus">Прайс от 17.11.2026</span>
+      <div class="price-tools"><span class="status" id="priceStatus">Прайс от 17.11.2026</span><button class="btn small" type="button" id="copyPrice">Скопировать прайс</button></div>
     </div>
     <div class="price-grid" id="priceGrid"></div>
+    <textarea id="priceText" readonly hidden aria-label="Прайс текстом"></textarea>
+    <p class="note">Всё из прайса есть весь сезон. Если что-то закончится под конец декабря, напишем в канале партнёров.</p>
     <p class="note">Ваша прибыль в прайсе — при продаже по рекомендованной цене и оплате наличными. При оплате без наличных из неё удерживается 7% от суммы заказа.</p>
   </div>
 </section>
 
-<section class="band" id="terms">
+<section class="band alt" id="terms">
   <div class="wrap stack" style="gap:2rem">
     <div class="stack"><span class="eyebrow">Условия</span><h2>Всё про деньги и доставку на одной странице</h2></div>
     <dl class="terms">
@@ -357,7 +385,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
   </div>
 </section>
 
-<section class="band alt" id="avito">
+<section class="band" id="avito">
   <div class="wrap stack" style="gap:2rem">
     <div class="stack"><span class="eyebrow">Авито</span><h2>Как продавать на Авито</h2>
       <p class="lead">Большинство наших сильных партнёров продают через Авито. Что работает лучше всего:</p></div>
@@ -372,7 +400,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
   </div>
 </section>
 
-<section class="band" id="faq">
+<section class="band alt" id="faq">
   <div class="wrap stack" style="gap:2rem">
     <div class="stack"><span class="eyebrow">Вопросы и ответы</span><h2>Что обычно спрашивают</h2></div>
     <div class="faq">
@@ -382,6 +410,14 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
       <details><summary>Сколько стоит доставка за МКАД?</summary><div><p>50 ₽ за километр от ближайшего съезда с МКАД или КАД. Эту сумму добавьте к цене для покупателя.</p></div></details>
       <details><summary>Какое дерево посоветовать покупателю?</summary><div><p>Хочет запах — русская ель. Хочет, чтобы стояла долго и не осыпалась, — пихта Нордмана. Мало места — Фразер, она узкая. Нужно большое и пышное недорого — сосна или ель 2,5 м и выше.</p></div></details>
       <details><summary>А если ёлка осыпалась?</summary><div><p>Если до 30 декабря — заменим. Покупателю стоит поливать дерево и не ставить его у батареи.</p></div></details>
+      <details><summary>Покупатель просит фото или видео своего дерева</summary><div><p>Так не получится. Дерево приезжает в сетке и расправляется несколько часов в тепле, а на складе его нельзя заранее отложить под конкретный заказ. Для объявлений берите фото из нашей папки.</p></div></details>
+      <details><summary>Можно привезти сегодня?</summary><div><p>Нет. Заказ до 18:00 — доставка на следующий день.</p></div></details>
+      <details><summary>Как посчитать доставку за МКАД или КАД?</summary><div><p>Постройте на карте маршрут от ближайшего к покупателю съезда с МКАД или КАД до адреса и умножьте километры на 50 ₽. Утилизация за МКАД и КАД считается так же.</p></div></details>
+      <details><summary>Покупатель передумал или не подошёл размер</summary><div><p>Бесплатна доставка, а обмен по желанию покупателя — нет. Повторная доставка стоит 1 000 ₽, разницу в цене дерева пересчитаем.</p></div></details>
+      <details><summary>Пихта Фразера выглядит подстриженной. Это брак?</summary><div><p>Нет. Фразера стригут по мере роста, поэтому у неё ровный конус. Такой она приезжает из питомника.</p></div></details>
+      <details><summary>Цены поменяются в сезоне?</summary><div><p>Нет, цена одна до конца сезона. Распродажа бывает только в самом конце, о ней напишем в канале.</p></div></details>
+      <details><summary>Мои покупатели станут вашими?</summary><div><p>Нет. Мы не делаем рассылки покупателям, которые пришли от партнёров.</p></div></details>
+      <details><summary>Фирма хочет много деревьев</summary><div><p>Напишите нам до того, как называть цену: на большой заказ обсудим цену для партнёра. При оплате по счёту удерживается 7%.</p></div></details>
       <details><summary>Можно работать под своим брендом?</summary><div><p>Нет: бирки на деревьях наши, звонят покупателю от «Господина Ёлкина». Для покупателя это плюс — компания с историей с 2014 года.</p></div></details>
       <details><summary>Что такое ретробонус?</summary><div><p>Премия по итогам сезона. Считается от суммы ваших заказов по цене для партнёра: от 100 тысяч — 5 тысяч рублей, от 200 тысяч — 12 тысяч и дальше по таблице в условиях.</p></div></details>
     </div>
@@ -477,6 +513,17 @@ document.getElementById("cItem").addEventListener("change",()=>{const it=calcIte
 document.getElementById("calcForm").addEventListener("input",calc);
 document.getElementById("calcForm").addEventListener("submit",e=>e.preventDefault());
 
+function priceAsText(){
+  const lines=["Господин Ёлкин — прайс для партнёров 2026","Позиция | Розница | Для партнёра | Ваша прибыль"];
+  for(const [g,items] of PRICE){ lines.push("",g); for(const [n,r,p] of items) lines.push(`${n} | ${fmt(r)} | ${fmt(p)} | ${fmt(r-p)}`); }
+  lines.push("","Доставка с деревом внутри МКАД/КАД — бесплатно; без дерева — 500 ₽; за МКАД/КАД — 50 ₽ за км.");
+  return lines.join("\n");
+}
+document.getElementById("copyPrice").addEventListener("click",async e=>{
+  const btn=e.currentTarget, text=priceAsText(), ta=document.getElementById("priceText");
+  try{ await navigator.clipboard.writeText(text); btn.textContent="Скопировано"; setTimeout(()=>btn.textContent="Скопировать прайс",2000); }
+  catch(_){ ta.value=text; ta.hidden=false; ta.focus(); ta.select(); btn.textContent="Выделено — нажмите Ctrl+C"; }
+});
 function boot(){ renderPrice(); fillSelect(); calc(); }
 boot();
 
