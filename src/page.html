@@ -255,16 +255,21 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
             <input type="radio" name="pay" id="payCard" value="card"><label for="payCard">Без наличных</label>
           </div>
         </div>
-        <p class="note">Доставка, подъём и установка уже в цене для партнёра — отдельно платить не нужно (внутри МКАД и КАД).</p>
+        <div class="row2">
+          <div class="field"><label for="cKm">За МКАД или КАД, км на весь заказ</label><input id="cKm" type="number" min="0" max="500" value="0" inputmode="numeric"></div>
+          <div class="field"><label for="cAds">Ваши расходы на рекламу, ₽</label><input id="cAds" type="number" min="0" step="100" value="0" inputmode="numeric"></div>
+        </div>
+        <p class="note">Доставка, подъём и установка внутри МКАД и КАД уже в цене для партнёра. Километры за кольцевой покупатель доплачивает по 50 ₽, эти деньги не ваши, но 7% при оплате без наличных берутся и с них.</p>
       </form>
       <div class="result" aria-live="polite">
         <span class="eyebrow">Ваш доход</span>
         <div class="sum" id="rSum">14 900 ₽</div>
         <dl>
           <dt>Покупатели платят</dt><dd id="rRevenue"></dd>
-          <dt>Цена для партнёра</dt><dd id="rCost"></dd>
+          <dt>Цена для партнёра и доставка за кольцевой</dt><dd id="rCost"></dd>
           <dt id="rTaxLabel">Удержание 7%</dt><dd id="rTax"></dd>
-          <dt>С одного дерева</dt><dd id="rPer"></dd>
+          <dt>Реклама</dt><dd id="rAds"></dd>
+          <dt>С одной штуки</dt><dd id="rPer"></dd>
         </dl>
         <p class="note" id="rHint"></p>
       </div>
@@ -272,7 +277,19 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
   </div>
 </section>
 
-<section class="band" id="trust">
+<section class="band" id="new2026">
+  <div class="wrap stack" style="gap:1.5rem">
+    <div class="stack"><span class="eyebrow">Для тех, кто работал с нами раньше</span><h2>Что изменилось в 2026</h2></div>
+    <ul class="tips">
+      <li><b>Выплаты раз в три дня</b><span>Не нужно ждать конца сезона.</span></li>
+      <li><b>Ретробонус известен заранее</b><span>Пороги объявлены до старта продаж и не меняются в сезоне.</span></li>
+      <li><b>Одна цена до конца сезона</b><span>Прайс 2026 не переписываем по ходу, распродажа только в самом конце.</span></li>
+      <li><b>Свой бот и этот сайт</b><span>Прайс, фото, тексты и условия в одном месте, без пересылок в личку.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="band alt" id="trust">
   <div class="wrap stack" style="gap:2rem">
     <div class="stack"><span class="eyebrow">Почему нам доверяют</span><h2>Ёлки — наша работа с 2014 года</h2></div>
     <div class="trust">
@@ -284,7 +301,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
   </div>
 </section>
 
-<section class="band alt" id="steps">
+<section class="band" id="steps">
   <div class="wrap stack" style="gap:2rem">
     <div class="stack"><span class="eyebrow">Как начать</span><h2>Три шага до первого заказа</h2></div>
     <ol class="steps">
@@ -296,7 +313,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
   </div>
 </section>
 
-<section class="band" id="order">
+<section class="band alt" id="order">
   <div class="wrap stack" style="gap:2rem">
     <div class="stack"><span class="eyebrow">Заявка</span><h2>Что написать в заказе</h2>
       <p class="lead">Уточнять заказ у покупателя мы не звоним: водитель позвонит только перед выездом. Поэтому привезём то, что написано в заявке. Шаблон пришлём после регистрации в боте.</p></div>
@@ -314,7 +331,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
   </div>
 </section>
 
-<section class="band alt" id="trees">
+<section class="band" id="trees">
   <div class="wrap stack" style="gap:2rem">
     <div class="stack">
       <span class="eyebrow">Ассортимент</span>
@@ -323,16 +340,16 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
     </div>
     <div class="trees">
       <article class="tree"><img src="img/spruce-studio.jpg" alt="Русская ель в подставке у белой стены" loading="lazy">
-        <div class="body"><h3>Русская ель</h3><div class="chips"><span class="chip">1–4 м</span><span class="chip">стоит 2–3 недели</span></div>
+        <div class="body"><h3>Русская ель</h3><div class="chips"><span class="chip">1–4 м</span><span class="chip">2–3 недели при поливе</span></div>
         <p>Самый насыщенный хвойный запах, запах из детства. Стройное дерево с густыми побегами, иголки 2–3 см.</p></div></article>
       <article class="tree"><img src="img/pine-studio.jpg" alt="Русская сосна в подставке у белой стены" loading="lazy">
-        <div class="body"><h3>Русская сосна</h3><div class="chips"><span class="chip">1–4 м</span><span class="chip">стоит 3–4 недели</span></div>
+        <div class="body"><h3>Русская сосна</h3><div class="chips"><span class="chip">1–4 м</span><span class="chip">3–4 недели при поливе</span></div>
         <p>Пышная и разлапистая, мягкие длинные иголки 6–7 см, смолистый запах. Хороша в больших размерах.</p></div></article>
       <article class="tree"><img src="img/nordmann-studio.jpg" alt="Пихта Нордмана в подставке у белой стены" loading="lazy">
-        <div class="body"><h3>Пихта Нордмана</h3><div class="chips"><span class="chip">1–3 м</span><span class="chip">стоит 4–6 недель</span><span class="chip">Дания</span></div>
+        <div class="body"><h3>Пихта Нордмана</h3><div class="chips"><span class="chip">1–3 м</span><span class="chip">4–6 недель при поливе</span><span class="chip">Дания</span></div>
         <p>Ёлка как с открытки: ярусы веток через 5–8 см, мягкая тёмно-зелёная хвоя с серебристой изнанкой. Почти не осыпается, запах лёгкий.</p></div></article>
       <article class="tree"><img src="img/fraser-studio.jpg" alt="Пихта Фразера в подставке" loading="lazy">
-        <div class="body"><h3>Пихта Фразера</h3><div class="chips"><span class="chip">1–2,5 м</span><span class="chip">стоит 3–5 недель</span></div>
+        <div class="body"><h3>Пихта Фразера</h3><div class="chips"><span class="chip">1–2,5 м</span><span class="chip">3–5 недель при поливе</span></div>
         <p>Ровный конус: её стригут по мере роста. Узкая — удобно для небольших комнат. Пахнет хвоей с цитрусовой ноткой.</p></div></article>
       <article class="tree"><img src="img/konika-row.jpg" alt="Ели Коника в горшках на складе" loading="lazy">
         <div class="body"><h3>Ель Коника в горшке</h3><div class="chips"><span class="chip">40–60 см</span><span class="chip">в горшке</span></div>
@@ -353,7 +370,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
   </div>
 </section>
 
-<section class="band" id="price">
+<section class="band alt" id="price">
   <div class="wrap stack" style="gap:2rem">
     <div class="price-head">
       <div class="stack"><span class="eyebrow">Прайс 2026</span><h2>Цены для партнёра</h2></div>
@@ -361,12 +378,12 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
     </div>
     <div class="price-grid" id="priceGrid"></div>
     <textarea id="priceText" readonly hidden aria-label="Прайс текстом"></textarea>
-    <p class="note">Всё из прайса есть весь сезон. Если что-то закончится под конец декабря, напишем в канале партнёров.</p>
+    <p class="note">Обычно всё из прайса есть весь сезон. Если позиция закончится, сразу напишем в канале партнёров — проверяйте его перед тем, как обещать покупателю редкий размер.</p>
     <p class="note">Ваша прибыль в прайсе — при продаже по рекомендованной цене и оплате наличными. При оплате без наличных из неё удерживается 7% от суммы заказа.</p>
   </div>
 </section>
 
-<section class="band alt" id="terms">
+<section class="band" id="terms">
   <div class="wrap stack" style="gap:2rem">
     <div class="stack"><span class="eyebrow">Условия</span><h2>Всё про деньги и доставку на одной странице</h2></div>
     <dl class="terms">
@@ -376,7 +393,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
       <div class="term"><dt>Ретробонус</dt><dd>По итогам сезона, от суммы ваших заказов по цене для партнёра:
         <ul class="bonus"><li><span>от 100 000 ₽</span><span>5 000 ₽</span></li><li><span>от 200 000 ₽</span><span>12 000 ₽</span></li><li><span>от 500 000 ₽</span><span>40 000 ₽</span></li><li><span>от 700 000 ₽</span><span>60 000 ₽</span></li><li><span>от 1 000 000 ₽</span><span>100 000 ₽</span></li></ul></dd></div>
       <div class="term"><dt>Когда привезём</dt><dd>Заказ до 18:00 — доставка на следующий день. Перед выездом звоним покупателю. Последний день доставки — 30 декабря.</dd></div>
-      <div class="term"><dt>Самовывоз</dt><dd>С 5 декабря — из нашего павильона на Хлебозаводе №9 (Москва, Новодмитровская ул., 1). Покупатель называет ваше имя, заказ засчитывается вам.</dd></div>
+      <div class="term"><dt>Самовывоз</dt><dd>С 5 декабря — из нашего павильона на Хлебозаводе №9 (Москва, Новодмитровская ул., 1). Покупатель называет ваше имя, а вы пишете нам, что он купил, с вашим промокодом — тогда заказ засчитаем вам.</dd></div>
       <div class="term"><dt>Доставка</dt><dd>С деревом внутри МКАД и КАД — бесплатно, с подъёмом и установкой в подставку. Без дерева — 500 ₽. За МКАД и КАД — 50 ₽ за километр от ближайшего съезда.</dd></div>
       <div class="term"><dt>Города</dt><dd>Москва и Петербург.</dd></div>
       <div class="term"><dt>Замена</dt><dd>Если дерево осыпалось до 30 декабря — заменим.</dd></div>
@@ -386,22 +403,22 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
   </div>
 </section>
 
-<section class="band" id="avito">
+<section class="band alt" id="avito">
   <div class="wrap stack" style="gap:2rem">
     <div class="stack"><span class="eyebrow">Авито</span><h2>Как продавать на Авито</h2>
       <p class="lead">Большинство наших сильных партнёров продают через Авито. Что работает лучше всего:</p></div>
     <ul class="tips">
-      <li><b>Свои фото</b><span>Одинаковые картинки у разных продавцов Авито склеивает. Берите фото из нашей папки, но разные наборы, а лучше доснимите своё.</span></li>
+      <li><b>Свои фото</b><span>Если у десятков продавцов одни и те же картинки, объявление теряется среди похожих. Берите из нашей папки разные фото, а лучше доснимите своё.</span></li>
       <li><b>Цена рядом с соседями</b><span>Посмотрите, почём продают рядом. Говорите о том, чего у дешёвых нет: доставка, подъём и установка включены, замена до 30 декабря.</span></li>
       <li><b>Отвечайте быстро</b><span>Покупатель пишет нескольким продавцам сразу и берёт у того, кто ответил первым.</span></li>
       <li><b>Начинайте заранее</b><span>Объявлению нужно несколько дней, чтобы набрать просмотры. Предзаказы принимайте с первых дней.</span></li>
-      <li><b>Реклама — на крупные деревья</b><span>Платное продвижение окупается на ели и сосне от 2,5 м, где доход с дерева большой. На маленькой пихте реклама съест почти всё.</span></li>
+      <li><b>Реклама — на крупные деревья</b><span>Прежде чем платить за продвижение, посчитайте в калькуляторе доход вместе с расходами на рекламу. Больше всего запаса у ели и сосны от 2,5 м, на маленькой пихте реклама съест почти всё.</span></li>
       <li><b>Без серых способов</b><span>Не нужно массово размножать объявления и обходить правила Авито: за это блокируют аккаунт в разгар сезона.</span></li>
     </ul>
   </div>
 </section>
 
-<section class="band alt" id="faq">
+<section class="band" id="faq">
   <div class="wrap stack" style="gap:2rem">
     <div class="stack"><span class="eyebrow">Вопросы и ответы</span><h2>Что обычно спрашивают</h2></div>
     <div class="faq">
@@ -413,12 +430,12 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
       <details><summary>А если ёлка осыпалась?</summary><div><p>Если до 30 декабря — заменим. Покупателю стоит поливать дерево и не ставить его у батареи.</p></div></details>
       <details><summary>Покупатель просит фото или видео своего дерева</summary><div><p>Так не получится. Дерево приезжает в сетке и расправляется несколько часов в тепле, а на складе его нельзя заранее отложить под конкретный заказ. Для объявлений берите фото из нашей папки.</p></div></details>
       <details><summary>Можно привезти сегодня?</summary><div><p>Нет. Заказ до 18:00 — доставка на следующий день. Последний день доставки — 30 декабря.</p></div></details>
-      <details><summary>Покупатель хочет забрать дерево сам</summary><div><p>С 5 декабря — из нашего павильона на Хлебозаводе №9, Москва, Новодмитровская ул., 1. Там можно выбрать дерево самому.</p><img src="img/pavilion.jpg" alt="Павильон «Господина Ёлкина» на Хлебозаводе №9 зимним вечером" loading="lazy" style="border-radius:8px;max-width:420px;width:100%"><p> Пусть покупатель скажет, что он от вас, а вы потом напишите нам, что он купил, — заказ засчитаем вам. В Петербурге самовывоза нет.</p></div></details>
-      <details><summary>Как посчитать доставку за МКАД или КАД?</summary><div><p>Постройте на карте маршрут от ближайшего к покупателю съезда с МКАД или КАД до адреса и умножьте километры на 50 ₽. Утилизация за МКАД и КАД считается так же.</p></div></details>
+      <details><summary>Покупатель хочет забрать дерево сам</summary><div><p>С 5 декабря — из нашего павильона на Хлебозаводе №9, Москва, Новодмитровская ул., 1. Там можно выбрать дерево самому.</p><img src="img/pavilion.jpg" alt="Павильон «Господина Ёлкина» на Хлебозаводе №9 зимним вечером" loading="lazy" style="border-radius:8px;max-width:420px;width:100%"><p> Пусть покупатель скажет, что он от вас, а вы потом напишите нам, что он купил, с вашим промокодом — заказ засчитаем вам. В Петербурге самовывоза нет.</p></div></details>
+      <details><summary>Как посчитать доставку за МКАД или КАД?</summary><div><p>Постройте на карте маршрут от ближайшего к покупателю съезда с МКАД или КАД до адреса и умножьте километры на 50 ₽. Утилизация за МКАД считается так же; в Петербурге утилизации нет.</p></div></details>
       <details><summary>Покупатель передумал или не подошёл размер</summary><div><p>Бесплатна доставка, а обмен по желанию покупателя — нет. Повторная доставка стоит 1 000 ₽, разницу в цене дерева пересчитаем.</p></div></details>
       <details><summary>Пихта Фразера выглядит подстриженной. Это брак?</summary><div><p>Нет. Фразера стригут по мере роста, поэтому у неё ровный конус. Такой она приезжает из питомника.</p></div></details>
       <details><summary>Цены поменяются в сезоне?</summary><div><p>Нет, цена одна до конца сезона. Распродажа бывает только в самом конце, о ней напишем в канале.</p></div></details>
-      <details><summary>Мои покупатели станут вашими?</summary><div><p>Нет. Мы не делаем рассылки покупателям, которые пришли от партнёров.</p></div></details>
+      <details><summary>Мы будем писать вашим покупателям?</summary><div><p>Нет, рассылок покупателям, которые пришли от партнёров, мы не делаем.</p></div></details>
       <details><summary>Фирма хочет много деревьев</summary><div><p>Напишите нам до того, как называть цену: на большой заказ обсудим цену для партнёра. При оплате по счёту удерживается 7%.</p></div></details>
       <details><summary>Можно работать под своим брендом?</summary><div><p>Нет: бирки на деревьях наши, звонят покупателю от «Господина Ёлкина». Для покупателя это плюс — компания с историей с 2014 года.</p></div></details>
       <details><summary>Что такое ретробонус?</summary><div><p>Премия по итогам сезона. Считается от суммы ваших заказов по цене для партнёра: от 100 тысяч — 5 тысяч рублей, от 200 тысяч — 12 тысяч и дальше по таблице в условиях.</p></div></details>
@@ -455,6 +472,8 @@ const SNAPSHOT = [
 const TAX = 0.07;
 const fmt = n => Math.round(n).toLocaleString("ru-RU").replace(/,/g," ") + " ₽";
 const num = s => { const v = parseInt(String(s).replace(/[^\d]/g,""),10); return Number.isFinite(v) ? v : null; };
+const numIn = id => { const v = parseFloat(String(document.getElementById(id).value).replace(",", ".")); return Number.isFinite(v) && v >= 0 ? Math.round(v) : null; };
+let priceTouched = false;
 
 function parseCSV(text){
   const rows=[]; let row=[], f="", q=false;
@@ -491,34 +510,40 @@ function fillSelect(){
   sel.innerHTML=items.map((it,i)=>`<option value="${i}">${it.label}</option>`).join("");
   const def=items.findIndex(it=>it.label==="Русская ель, 1,5–2 м");
   sel.value = prev && items[prev] ? prev : String(def<0?0:def);
-  document.getElementById("cPrice").value = items[sel.value].r;
+  if(!priceTouched) document.getElementById("cPrice").value = items[sel.value].r;
   const t=items[def]; if(t) document.getElementById("heroTag").innerHTML=`Ель 1,5–2 м<b>${fmt(t.r-t.p)} вам</b>с одного дерева по рекомендованной цене`;
 }
 function calc(){
   const items=calcItems(); const it=items[document.getElementById("cItem").value]; if(!it) return;
-  const qty=Math.max(1,Math.min(999,num(document.getElementById("cQty").value)||1));
-  const price=num(document.getElementById("cPrice").value) ?? it.r;
+  const qty=Math.max(1,Math.min(999,numIn("cQty")||1));
+  const price=numIn("cPrice") ?? it.r;
+  const km=Math.min(500,numIn("cKm")||0), ads=numIn("cAds")||0, road=km*50;
   const card=document.getElementById("payCard").checked;
-  const revenue=price*qty, cost=it.p*qty, tax=card?revenue*TAX:0, income=revenue-cost-tax;
+  const revenue=price*qty+road, cost=it.p*qty+road, tax=card?revenue*TAX:0, income=revenue-cost-tax-ads;
+  document.getElementById("rAds").textContent=ads?"− "+fmt(ads):"0 ₽";
   document.getElementById("rSum").textContent=fmt(income);
   document.getElementById("rRevenue").textContent=fmt(revenue);
-  document.getElementById("rCost").textContent=fmt(cost);
+  document.getElementById("rCost").textContent="− "+fmt(cost);
   document.getElementById("rTax").textContent=card?"− "+fmt(tax):"0 ₽";
   document.getElementById("rTaxLabel").textContent=card?"Удержание 7% от суммы":"Удержание (наличные)";
   document.getElementById("rPer").textContent=fmt(income/qty);
   const hint=document.getElementById("rHint");
-  if(income<0) hint.textContent="Ваша цена ниже цены для партнёра — так вы работаете в минус.";
+  if(income<0) hint.textContent="Получается минус: поднимите цену или сократите расходы на рекламу.";
   else if(card){ const cash=revenue-cost; hint.textContent=`Наличными вышло бы ${fmt(cash)} — на ${fmt(tax)} больше.`; }
   else hint.textContent=`Рекомендованная цена — ${fmt(it.r)}. Можно поставить свою.`;
 }
-document.getElementById("cItem").addEventListener("change",()=>{const it=calcItems()[document.getElementById("cItem").value]; document.getElementById("cPrice").value=it.r; calc();});
+document.getElementById("cItem").addEventListener("change",()=>{const it=calcItems()[document.getElementById("cItem").value]; document.getElementById("cPrice").value=it.r; priceTouched=false; calc();});
+document.getElementById("cPrice").addEventListener("input",()=>{priceTouched=true;});
 document.getElementById("calcForm").addEventListener("input",calc);
 document.getElementById("calcForm").addEventListener("submit",e=>e.preventDefault());
 
 function priceAsText(){
   const lines=["Господин Ёлкин — прайс для партнёров 2026","Позиция | Розница | Для партнёра | Ваша прибыль"];
   for(const [g,items] of PRICE){ lines.push("",g); for(const [n,r,p] of items) lines.push(`${n} | ${fmt(r)} | ${fmt(p)} | ${fmt(r-p)}`); }
-  lines.push("","Доставка с деревом внутри МКАД/КАД — бесплатно; без дерева — 500 ₽; за МКАД/КАД — 50 ₽ за км.");
+  lines.push("","«Ваша прибыль» — при продаже по рекомендованной цене и оплате наличными. При оплате без наличных удерживается 7% от суммы заказа.",
+    "Доставка с деревом внутри МКАД/КАД — бесплатно; без дерева — 500 ₽; за МКАД/КАД — 50 ₽ за км от ближайшего съезда.",
+    "Заказ до 18:00 — доставка на следующий день, последний день доставки 30 декабря. Утилизация — только в Москве.",
+    "Условия полностью: "+location.href.split("#")[0]);
   return lines.join("\n");
 }
 document.getElementById("copyPrice").addEventListener("click",async e=>{
